@@ -1,5 +1,5 @@
 <h1 align="center">
-A Joint Pairwise and Pointwise Learning Method based on Controversial Items Sampling
+A Multi-Factor Collaborative Prediction for Review-based Recommendation
 </h1>
 
 <p align="center">
@@ -10,11 +10,11 @@ A Joint Pairwise and Pointwise Learning Method based on Controversial Items Samp
 
 
 
-Repo for submation of KDD'25: [A Joint Pairwise and Pointwise Learning Method based on Controversial Items Sampling]
+Repo for submation of Neural Networks : [A Multi-Factor Collaborative Prediction for Review-based Recommendation]
 
 <h2 id="introduction">1. Introduction✨</h2>
 
-Recommender systems help users find more interesting items by mining their historical behaviors to understand their preferences. The training loss of the recommendation models evolves from pointwise loss to pairwise loss. The pairwise loss is well adapted to the inherent problems in recommender systems, such as missing true negative samples, and brings good performance. However, since the goal of the pairwise loss is to maximize the score difference between positive and negative samples without limitation, the positive samples become extremely large while the negative samples become extremely small. The system enhances the experience of some users while hurting the experience of others. In this paper, we propose a rating-based joint learning method (RJL), which explores the possibility of jointly learning pairwise and pointwise losses based on explicitly rating data. Specifically, RJL contains a novel loss function to find the overlapping solution spaces of the two loss functions by simultaneously optimizing the pairwise and pointwise losses. The overlapping solution space is more rigorous and has a higher probability of finding an optimal solution because it eliminates suboptimal solutions through mutual interaction. Additionally, we develop a novel controversial items sampling method, which extracts negative samples from rating data, avoiding potential systematic errors from hypothetical labels of unobserved items introduced by the pointwise loss. Experimental results on four datasets show the proposed method's superior performance compared to state-of-the-art methods, with an average increase of 5.12% on NDCG@5.
+In recommender systems, user behaviors contain clicks, ratings, and reviews. Existing review-based methods implicitly model click behaviors to achieve accurate predictions on rating prediction tasks (RP). However, they ignore the help of the rating behaviors for the click-through rate prediction task (CTR). Although the process from clicks to ratings is generally considered to be one-way, we can still get some information about clicks from ratings. In this paper, we propose a multi-factor collaborative prediction method (MFC) for the review-based recommendation. It mines the complex relationship between click and rating behaviors, achieving accurate prediction on CTR tasks. Specifically, we factorize the complex relationship into three simple relationships, i.e., linear, sharing, and cross-correlation relationships. Thus, we first extract click factors, rating factors, and their sharing factor, from user click and rating behaviors. Then, we design a rating factor regularization method to learn rating factors accurately, helping to model the true relationships between click and rating behavior. Finally, we combine these three factors to make predictions, while click and rating factors are used to model the linear and cross-correlation relationships, while the sharing factors correspond to the sharing relation. Experiments on five real-world datasets demonstrate that MFC outperforms the best baseline by 9.19%, 9.80%, 0.69%, and 7.95%, in terms of Accuracy, Precision, Recall, and F1-score respectively.
 
 
 <h2 id="quick-start">2. Quick Start🚀</h2>
@@ -24,21 +24,15 @@ Recommender systems help users find more interesting items by mining their histo
 ```
 .\data [training data]  
 .\src  
+.\untils
 ```
 
-2. Compile source files
+
+2. training the model
 
 ```sh
-g++ -std=c++11 -o src/RJL.run src/RJL.cpp 
+python src/main.py
 ```
-
-
-3. training the model
-
-```sh
-python src/run.py
-```
-
 
 
 
